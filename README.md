@@ -11,11 +11,11 @@ The system demonstrates the use of core OOP principles such as:
 - Method interaction between classes
 
 Project Structure:
-The project consists of the following classes:
-Pet – stores information about pets and provides methods to analyze their age and life stage.
-Owner – represents pet owners and tracks the number of pets they have.
-Veterinarian – stores veterinarian details and determines treatment eligibility based on specialization and experience.
-Main – the entry point of the program where objects are created and tested.
+- The project consists of the following classes:
+- Pet – stores information about pets and provides methods to analyze their age and life stage.
+- Owner – represents pet owners and tracks the number of pets they have.
+- Veterinarian – stores veterinarian details and determines treatment eligibility based on specialization and experience.
+- Main – the entry point of the program where objects are created and tested.
 
 Technologies Used:
 - Java
@@ -36,9 +36,9 @@ Features Implemented:
 - Demonstrate getters, setters, and additional methods
 
 Author:
-Madina Yerzhimbay
-Astana IT University
-Course: Object-Oriented Programming
+- Madina Yerzhimbay
+- Astana IT University
+- Course: Object-Oriented Programming
 
 License:
 This project is created for educational purposes only.
