@@ -36,9 +36,9 @@ Features Implemented:
 - Demonstrate getters, setters, and additional methods
 
 Author:
-  Madina Yerzhimbay
-  Astana IT University
-  Course: Object-Oriented Programming
+Madina Yerzhimbay
+Astana IT University
+Course: Object-Oriented Programming
 
 License:
 This project is created for educational purposes only.
