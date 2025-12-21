@@ -13,6 +13,14 @@ public class Owner {
         this.numberOfPets = numberOfPets;
     }
 
+    public Owner() {
+        this.ownerId = 0;
+        this.name = "Unknown";
+        this.phone = "Not provided";
+        this.numberOfPets = 0;
+    }
+
+
     public int getOwnerId() {
         return ownerId;
     }

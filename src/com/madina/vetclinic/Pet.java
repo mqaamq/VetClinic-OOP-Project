@@ -15,6 +15,14 @@ public class Pet {
         this.ownerName = ownerName;
     }
 
+    public Pet() {
+        this.petId = 0;
+        this.name = "Unknown";
+        this.species = "Unknown";
+        this.age = 0;
+        this.ownerName = "Unknown";
+    }
+
 
     public int getPetId() {
         return petId;

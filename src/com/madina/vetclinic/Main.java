@@ -113,6 +113,19 @@ public class Main {
         System.out.println();
 
 
+        System.out.println("--- TESTING DEFAULT CONSTRUCTORS ---");
+
+        Pet defaultPet = new Pet();
+        Owner defaultOwner = new Owner();
+        Veterinarian defaultVet = new Veterinarian();
+
+        System.out.println(defaultPet);
+        System.out.println(defaultOwner);
+        System.out.println(defaultVet);
+
+        System.out.println();
+
+
         //final summary
         System.out.println("--- FINAL STATE ---");
         System.out.println("Pets:");

@@ -13,6 +13,14 @@ public class Veterinarian {
         this.experience=experience;
     }
 
+    public Veterinarian() {
+        this.vetId = 0;
+        this.name = "Unknown";
+        this.specialization = "General";
+        this.experience = 0;
+    }
+
+
     public int getVetId() {
         return vetId;
     }
