@@ -24,7 +24,7 @@ Technologies Used:
 
 How to Run:
 - Clone the repository:
-  git clone https://github.com/your-username/vetclinic_project.git
+  git clone https://github.com/mqaamq/VetClinic-OOP-Project.git
 - Open the project in IntelliJ IDEA
 - Run the Main.java file
 
