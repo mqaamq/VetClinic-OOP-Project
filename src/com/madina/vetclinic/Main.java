@@ -112,7 +112,7 @@ public class Main {
         System.out.println(vet2.getName() + " is experienced: " + vet2.isExperienced());
         System.out.println();
 
-
+        // Testing default const-s
         System.out.println("--- TESTING DEFAULT CONSTRUCTORS ---");
 
         Pet defaultPet = new Pet();
