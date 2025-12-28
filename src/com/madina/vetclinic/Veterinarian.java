@@ -6,12 +6,6 @@ public class Veterinarian {
     private String specialization;
     private int experience;
 
-    public Veterinarian(int vetId, String name, String specialization, int experience){
-        this.vetId=vetId;
-        this.name=name;
-        this.specialization=specialization;
-        this.experience=experience;
-    }
 
     public Veterinarian() {
         this.vetId = 0;
@@ -21,44 +15,54 @@ public class Veterinarian {
     }
 
 
-    public int getVetId() {
-        return vetId;
+    public Veterinarian(int vetId, String name, String specialization, int experience) {
+        setVetId(vetId);
+        setName(name);
+        setSpecialization(specialization);
+        setExperience(experience);
     }
 
-    public void setVerId(int vetId) {
-        this.vetId = vetId;
-    }
 
-    public String getName() {
-        return name;
+    public int getVetId() { return vetId; }
+    public String getName() { return name; }
+    public String getSpecialization() { return specialization; }
+    public int getExperience() { return experience; }
+
+
+    public void setVetId(int vetId) {
+        if (vetId > 0) this.vetId = vetId;
+        else {
+            System.out.println("Warning: vetId must be positive! Setting to 0.");
+            this.vetId = 0;
+        }
     }
 
     public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSpecialization() {
-        return specialization;
+        if (name != null && !name.trim().isEmpty()) this.name = name.trim();
+        else System.out.println("Warning: Vet name cannot be empty!");
     }
 
     public void setSpecialization(String specialization) {
-        this.specialization = specialization;
-    }
-
-    public int getExperience() {
-        return experience;
+        if (specialization != null && !specialization.trim().isEmpty())
+            this.specialization = specialization.trim();
+        else System.out.println("Warning: Specialization cannot be empty!");
     }
 
     public void setExperience(int experience) {
-        this.experience = experience;
+        if (experience >= 0) this.experience = experience;
+        else {
+            System.out.println("Warning: Experience cannot be negative! Setting to 0.");
+            this.experience = 0;
+        }
     }
 
-    public boolean canTreat(Pet pet){
+
+    public boolean canTreat(Pet pet) {
         return specialization.equalsIgnoreCase(pet.getSpecies());
     }
 
-    public boolean isExperienced(){
-        return experience >=5;
+    public boolean isExperienced() {
+        return experience >= 5;
     }
 
     @Override
@@ -70,5 +74,4 @@ public class Veterinarian {
                 ", experience=" + experience +
                 '}';
     }
-
 }
