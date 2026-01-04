@@ -1,45 +1,23 @@
 package com.madina.vetclinic;
 
-public class Owner {
-    private int ownerId;
-    private String name;
+public class Owner extends ClinicPerson {
     private String phone;
     private int numberOfPets;
 
-
     public Owner() {
-        this.ownerId = 0;
-        this.name = "Unknown";
+        super();
         this.phone = "Not provided";
         this.numberOfPets = 0;
     }
 
     public Owner(int ownerId, String name, String phone, int numberOfPets) {
-        setOwnerId(ownerId);
-        setName(name);
+        super(ownerId, name);
         setPhone(phone);
         setNumberOfPets(numberOfPets);
     }
 
-
-    public int getOwnerId() { return ownerId; }
-    public String getName() { return name; }
     public String getPhone() { return phone; }
     public int getNumberOfPets() { return numberOfPets; }
-
-
-    public void setOwnerId(int ownerId) {
-        if (ownerId > 0) this.ownerId = ownerId;
-        else {
-            System.out.println("Warning: ownerId must be positive! Setting to 0.");
-            this.ownerId = 0;
-        }
-    }
-
-    public void setName(String name) {
-        if (name != null && !name.trim().isEmpty()) this.name = name.trim();
-        else System.out.println("Warning: Owner name cannot be empty!");
-    }
 
     public void setPhone(String phone) {
         if (phone != null && !phone.trim().isEmpty()) this.phone = phone.trim();
@@ -54,14 +32,18 @@ public class Owner {
         }
     }
 
-
     public void addPet() { numberOfPets++; }
     public boolean isFrequentClient() { return numberOfPets >= 3; }
 
     @Override
+    public String getRoleInfo() {
+        return "Owner: " + name + " | Pets: " + numberOfPets;
+    }
+
+    @Override
     public String toString() {
         return "Owner{" +
-                "ownerId=" + ownerId +
+                "ownerId=" + id +
                 ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
                 ", numberOfPets=" + numberOfPets +
