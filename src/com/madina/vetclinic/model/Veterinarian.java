@@ -1,16 +1,16 @@
-package com.madina.vetclinic;
+package com.madina.vetclinic.model;
 
-public class Veterinarian extends ClinicPerson {
+import com.madina.vetclinic.interfaces.Treatable;
+
+public class Veterinarian extends ClinicPerson implements Treatable {
     private String specialization;
     private int experience;
-
 
     public Veterinarian() {
         super();
         this.specialization = "General";
         this.experience = 0;
     }
-
 
     public Veterinarian(int vetId, String name, String specialization, int experience) {
         super(vetId, name);
@@ -21,22 +21,19 @@ public class Veterinarian extends ClinicPerson {
     public String getSpecialization() { return specialization; }
     public int getExperience() { return experience; }
 
-
     public void setSpecialization(String specialization) {
-        if (specialization != null && !specialization.trim().isEmpty())
-            this.specialization = specialization.trim();
-        else System.out.println("Warning: Specialization cannot be empty!");
+        if (specialization == null || specialization.trim().isEmpty())
+            throw new IllegalArgumentException("Specialization cannot be empty.");
+        this.specialization = specialization.trim();
     }
 
     public void setExperience(int experience) {
-        if (experience >= 0) this.experience = experience;
-        else {
-            System.out.println("Warning: Experience cannot be negative! Setting to 0.");
-            this.experience = 0;
-        }
+        if (experience < 0)
+            throw new IllegalArgumentException("Experience cannot be negative.");
+        this.experience = experience;
     }
 
-
+    @Override
     public boolean canTreat(Pet pet) {
         return specialization.equalsIgnoreCase(pet.getSpecies());
     }
@@ -45,20 +42,17 @@ public class Veterinarian extends ClinicPerson {
         return experience >= 5;
     }
 
-
     @Override
     public String getRoleInfo() {
-        return "Veterinarian: " + name + " | " + specialization + " specialist";
-    }
-
-
-    @Override
-    public String toString() {
-        return "Veterinarian{" +
-                "vetId=" + id +
+        return "Veterinarian{id=" + id +
                 ", name='" + name + '\'' +
                 ", specialization='" + specialization + '\'' +
                 ", experience=" + experience +
                 '}';
+    }
+
+    @Override
+    public String toString() {
+        return getRoleInfo();
     }
 }

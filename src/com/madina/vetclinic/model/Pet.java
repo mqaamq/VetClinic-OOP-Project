@@ -1,4 +1,4 @@
-package com.madina.vetclinic;
+package com.madina.vetclinic.model;
 
 public class Pet {
     private int petId;
@@ -6,7 +6,6 @@ public class Pet {
     private String species;
     private int age;
     private String ownerName;
-
 
     public Pet() {
         this.petId = 0;
@@ -16,7 +15,6 @@ public class Pet {
         this.ownerName = "Unknown";
     }
 
-
     public Pet(int petId, String name, String species, int age, String ownerName) {
         setPetId(petId);
         setName(name);
@@ -25,45 +23,39 @@ public class Pet {
         setOwnerName(ownerName);
     }
 
-
     public int getPetId() { return petId; }
     public String getName() { return name; }
     public String getSpecies() { return species; }
     public int getAge() { return age; }
     public String getOwnerName() { return ownerName; }
 
-
     public void setPetId(int petId) {
-        if (petId > 0) this.petId = petId;
-        else {
-            System.out.println("Warning: petId must be positive! Setting to 0.");
-            this.petId = 0;
-        }
+        if (petId <= 0) throw new IllegalArgumentException("Pet ID must be positive.");
+        this.petId = petId;
     }
 
     public void setName(String name) {
-        if (name != null && !name.trim().isEmpty()) this.name = name.trim();
-        else System.out.println("Warning: Pet name cannot be empty!");
+        if (name == null || name.trim().isEmpty())
+            throw new IllegalArgumentException("Pet name cannot be empty.");
+        this.name = name.trim();
     }
 
     public void setSpecies(String species) {
-        if (species != null && !species.trim().isEmpty()) this.species = species.trim();
-        else System.out.println("Warning: Species cannot be empty!");
+        if (species == null || species.trim().isEmpty())
+            throw new IllegalArgumentException("Species cannot be empty.");
+        this.species = species.trim();
     }
 
     public void setAge(int age) {
-        if (age >= 0) this.age = age;
-        else {
-            System.out.println("Warning: Age cannot be negative! Setting to 0.");
-            this.age = 0;
-        }
+        if (age < 0) throw new IllegalArgumentException("Age cannot be negative.");
+        this.age = age;
     }
 
     public void setOwnerName(String ownerName) {
-        if (ownerName != null && !ownerName.trim().isEmpty()) this.ownerName = ownerName.trim();
-        else System.out.println("Warning: Owner name cannot be empty!");
+        if (ownerName == null || ownerName.trim().isEmpty())
+            throw new IllegalArgumentException("Owner name cannot be empty.");
+        this.ownerName = ownerName.trim();
     }
-
 
     public boolean isYoung() { return age < 2; }
 

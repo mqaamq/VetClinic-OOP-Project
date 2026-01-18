@@ -1,4 +1,4 @@
-package com.madina.vetclinic;
+package com.madina.vetclinic.model;
 
 public class Owner extends ClinicPerson {
     private String phone;
@@ -20,33 +20,36 @@ public class Owner extends ClinicPerson {
     public int getNumberOfPets() { return numberOfPets; }
 
     public void setPhone(String phone) {
-        if (phone != null && !phone.trim().isEmpty()) this.phone = phone.trim();
-        else System.out.println("Warning: Phone cannot be empty!");
+        if (phone == null || phone.trim().isEmpty())
+            throw new IllegalArgumentException("Phone cannot be empty.");
+        this.phone = phone.trim();
     }
 
     public void setNumberOfPets(int numberOfPets) {
-        if (numberOfPets >= 0) this.numberOfPets = numberOfPets;
-        else {
-            System.out.println("Warning: numberOfPets cannot be negative! Setting to 0.");
-            this.numberOfPets = 0;
-        }
+        if (numberOfPets < 0)
+            throw new IllegalArgumentException("Number of pets cannot be negative.");
+        this.numberOfPets = numberOfPets;
     }
 
-    public void addPet() { numberOfPets++; }
-    public boolean isFrequentClient() { return numberOfPets >= 3; }
+    public void addPet() {
+        numberOfPets++;
+    }
+
+    public boolean isFrequentClient() {
+        return numberOfPets >= 3;
+    }
 
     @Override
     public String getRoleInfo() {
-        return "Owner: " + name + " | Pets: " + numberOfPets;
-    }
-
-    @Override
-    public String toString() {
-        return "Owner{" +
-                "ownerId=" + id +
+        return "Owner{id=" + id +
                 ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
                 ", numberOfPets=" + numberOfPets +
                 '}';
+    }
+
+    @Override
+    public String toString() {
+        return getRoleInfo();
     }
 }
