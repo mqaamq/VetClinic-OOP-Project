@@ -7,13 +7,13 @@ public class Pet {
     private int age;
     private String ownerName;
 
-    public Pet() {
-        this.petId = 0;
-        this.name = "Unknown";
-        this.species = "Unknown";
-        this.age = 0;
-        this.ownerName = "Unknown";
+    public Pet(String name, String species, int age, String ownerName) {
+        setName(name);
+        setSpecies(species);
+        setAge(age);
+        setOwnerName(ownerName);
     }
+
 
     public Pet(int petId, String name, String species, int age, String ownerName) {
         setPetId(petId);
